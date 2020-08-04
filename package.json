@@ -1,0 +1,36 @@
+{
+  "name": "news-explorer-api",
+  "version": "1.0.0",
+  "description": "backend for Yandex.Praktikum diploma project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varyalikhanina/news-explorer-api.git"
+  },
+  "keywords": [],
+  "author": "Varya Likhanina <varyalikhanina@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/varyalikhanina/news-explorer-api/issues"
+  },
+  "homepage": "https://github.com/varyalikhanina/news-explorer-api#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "celebrate": "^12.1.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.6.0",
+    "express": "^4.17.1",
+    "express-winston": "^4.0.5",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.27",
+    "validator": "^13.1.1",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
