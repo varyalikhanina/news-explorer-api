@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const { MESSAGES } = require('../utils/messages');
 
 const articleSchema = new mongoose.Schema({
   title: {
@@ -29,7 +30,7 @@ const articleSchema = new mongoose.Schema({
       validator(link) {
         return validator.isURL(link);
       },
-      message: 'Здесь должна быть ссылка на статью',
+      message: MESSAGES.linkRequired,
     },
   },
   image: {
@@ -39,7 +40,7 @@ const articleSchema = new mongoose.Schema({
       validator(link) {
         return validator.isURL(link);
       },
-      message: 'Здесь должна быть ссылка на иллюстрацию к статье',
+      message: MESSAGES.imageRequired,
     },
   },
   owner: {

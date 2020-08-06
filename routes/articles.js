@@ -1,11 +1,12 @@
 const articleRouter = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const validator = require('validator');
+const { MESSAGES } = require('../utils/messages');
 const BadRequest = require('../errors/bad-request');
 const {
   getArticles,
   createArticle,
-  deleteArticleById
+  deleteArticleById,
 } = require('../controllers/articles');
 
 articleRouter.get('/', getArticles);
@@ -18,14 +19,14 @@ articleRouter.post('/', celebrate({
     keyword: Joi.string().required(),
     link: Joi.required().custom((value) => {
       if (!validator.isURL(value)) {
-        throw new BadRequest('Здесь должна быть ссылка на картинку');
+        throw new BadRequest(MESSAGES.linkRequired);
       } else {
         return value;
       }
     }),
     image: Joi.required().custom((value) => {
       if (!validator.isURL(value)) {
-        throw new BadRequest('Здесь должна быть ссылка на картинку');
+        throw new BadRequest(MESSAGES.imageRequired);
       } else {
         return value;
       }

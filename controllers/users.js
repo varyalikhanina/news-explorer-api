@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user');
+const { MESSAGES } = require('../utils/messages');
 
 const Unathorized = require('../errors/unathorized');
 const BadRequest = require('../errors/bad-request');
@@ -17,7 +18,7 @@ const login = (req, res, next) => {
       });
     })
     .catch(() => {
-      next(new Unathorized('Неверная почта или пароль'));
+      next(new Unathorized(MESSAGES.authorizationFailed));
     });
 };
 
@@ -38,16 +39,16 @@ const createUser = (req, res, next) => {
     }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequest('Введите имя, почту и пароль'));
+        next(new BadRequest(MESSAGES.auhorizationRequired));
       } else {
-        next(new UserExists('Такой пользователь уже существует'));
+        next(new UserExists(MESSAGES.userAlreadyExists));
       }
     });
 };
 
 const getUser = (req, res, next) => {
   User.findById(req.user._id)
-    .orFail(() => new NotFound('Такого пользователя '))
+    .orFail(() => new NotFound(MESSAGES.userNotFound))
     .then((user) => res.send({ data: user }))
     .catch(next);
 };
@@ -55,5 +56,5 @@ const getUser = (req, res, next) => {
 module.exports = {
   login,
   createUser,
-  getUser
+  getUser,
 };
