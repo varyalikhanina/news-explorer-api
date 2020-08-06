@@ -2,9 +2,9 @@
 
 Бэкенд доступен по ссылкам:
 
-[http://www.news-explorer-project.ml/](http://www.news-explorer-project.ml/)
+[http://www.api.news-explorer-project.ml/](http://www.api.news-explorer-project.ml/)
 
-[http://news-explorer-project.ml/](http://news-explorer-project.ml)
+[http://api.news-explorer-project.ml/](http://api.news-explorer-project.ml)
 
 ## Публичный IPv4
 
