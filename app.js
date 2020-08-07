@@ -44,6 +44,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).send({
     message: statusCode === 500 ? MESSAGES.serverError : message,
   });
+  next();
 });
 
 app.listen(PORT, () => {
