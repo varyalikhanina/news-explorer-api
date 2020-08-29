@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 const mongoose = require('mongoose');
@@ -20,6 +21,7 @@ mongoose.connect(MONGO_DB, {
   useUnifiedTopology: true,
 });
 
+app.use(cors());
 app.use(helmet());
 app.use(json());
 app.use(limiter);
