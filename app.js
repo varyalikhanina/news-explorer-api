@@ -21,7 +21,12 @@ mongoose.connect(MONGO_DB, {
   useUnifiedTopology: true,
 });
 
-app.use(cors());
+const corsOptions = {
+  origin: ['https://api.news-explorer-project.ml', 'http://localhost:8080', 'https://varyalikhanina.github.io/news-explorer-frontend/'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(helmet());
 app.use(json());
 app.use(limiter);
