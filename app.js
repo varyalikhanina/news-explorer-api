@@ -22,9 +22,11 @@ mongoose.connect(MONGO_DB, {
 });
 
 const corsOptions = {
-  origin: 'http://localhost:8080', 'https://varyalikhanina.github.io/news-explorer-frontend/',
-  credentials: true,
-  methods: 'GET, POST, DELETE',
+  origin: 'https://varyalikhanina.github.io/news-explorer-frontend/',
+  'http://localhost:8080': {
+    credentials: true,
+    methods: 'GET, POST, DELETE',
+  },
 };
 
 app.use(cors(corsOptions));
