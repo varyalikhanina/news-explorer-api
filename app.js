@@ -38,6 +38,7 @@ const corsOptions = {
     }
   },
   credentials: true,
+  methods: 'GET, POST, DELETE',
 };
 
 app.use(cors(corsOptions));
