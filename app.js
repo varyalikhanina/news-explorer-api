@@ -22,7 +22,7 @@ mongoose.connect(MONGO_DB, {
 });
 
 const corsOptions = {
-  origin: '*',
+  origin: true,
   credentials: true,
   methods: 'GET, POST, DELETE',
 };
