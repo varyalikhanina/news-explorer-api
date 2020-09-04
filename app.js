@@ -21,20 +21,10 @@ mongoose.connect(MONGO_DB, {
   useUnifiedTopology: true,
 });
 
-const whitelist = [
-  'https://varyalikhanina.github.io/news-explorer-frontend',
-  'http://localhost:8080',
-];
-
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: true,
   credentials: true,
+  methods: 'GET, POST, DELETE',
 };
 
 app.use(cors(corsOptions));
